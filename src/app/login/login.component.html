@@ -1,0 +1,29 @@
+<div style="width: 100%;height: 90vh;" class="d-flex justify-content-center align-items-center">
+  
+    <div  class="shadow bg-info row rounded m-5 p-5  align-items-center">
+        <div class="col-lg-6 mt-2">
+            <img class="img-fluid" src="https://t4.ftcdn.net/jpg/04/60/71/01/360_F_460710131_YkD6NsivdyYsHupNvO3Y8MPEwxTAhORh.jpg" alt="">
+        </div>
+        <div class="col-lg-6 mt-2">
+            <form #loginForm="ngForm" class="border p-3 rounded" (ngSubmit)="login()">
+                <div class="border p-3 bg-dark">
+                    <h3 class="mb-3 text-light " style="height: 40px;">Login Form</h3>
+                    <div class="mb-2">
+                      
+                      <input name="email" [(ngModel)] = "email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address" email required #userEmailInput = "ngModel">
+                      
+                    </div>
+                    <!-- to show invalid email -->
+                    <div *ngIf="userEmailInput.invalid && userEmailInput.touched" class="text-danger mb-2 text-center">*Invalid Email</div>
+                    <div class="mb-3">
+                     
+                      <input name="password" [(ngModel)] = "password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" pattern="[a-zA-Z0-9]*" minlength="3" required #userPswdInput="ngModel">
+                    </div>
+                     <!-- to show invalid password -->
+                     <div *ngIf="userPswdInput.invalid && userPswdInput.touched" class="text-danger mb-2 text-center">*Invalid Password</div>
+                    <div class="d-grid"><button [disabled]="loginForm.invalid && loginForm.touched"  class="btn btn-warning">Login</button></div>
+                </div>
+              </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row w-100">
+        <div *ngIf="sideBarStatus" style="height: 90vh;width: fit-content;" class=" side-bar col-lg-2 bg-warning d-flex flex-column p-3">
+            <a style="text-decoration: none;color: white;" routerLink="/dashboard" class="fw-bold mb-3">HOME</a>
+            <a style="text-decoration: none;color: white;" routerLink="/users" class="fw-bold">USERS</a>
+            <button (click)="logout()" class="mt-auto btn btn-warning text-light">Logout <i class="fa-solid fa-xmark ms-1"></i></button>
+        </div>
+        <div  class="col-lg-10">
+            <div class=" pt-2 w-100">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div style="height: 180px;background-image: url('https://img.freepik.com/free-vector/half-tone-blue-abstract-background-with-text-space_1017-41428.jpg');" class="banner rounded p-3 d-flex align-items-center shadow">
+                            <h1 class="fw-bolder text-light" style="height: 50px;text-align: justify;"><i (click)="menuBtnClicked()" style="height: 42px;cursor: pointer;" class="fa-solid fa-bars me-3"></i> Welcome {{adminName}}</h1>
+                        </div>
+                        <div class="row mt-3 ms-1">
+                            <div class="col-lg-6 border rounded shadow">
+                                <!-- calendar -->
+                                <app-calender></app-calender>
+                            </div>
+                            
+                            <div class="col-lg-6 border rounded shadow ">
+                                <!-- chart -->
+                                <app-chart></app-chart>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div style="height: 400px;" class="border rounded p-2 shadow edit-admin">
+                            <app-update-admin (onAdminChange)="onAdminChange($event)"></app-update-admin>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center mt-2 shadow" style="height: 150px;background-image: url('https://static.vecteezy.com/system/resources/thumbnails/008/552/477/small/abstract-banner-background-with-lines-pattern-illustration-free-vector.jpg');">
+                                <h3 style="height: 55px;"><i class="fa-solid fa-users me-2"></i>Employees:{{userCount}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
